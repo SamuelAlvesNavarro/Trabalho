@@ -22,6 +22,10 @@ double conversao(double ang){
     return ((ang * M_PI) / 180);
 }
 
+double conversaoRad(double rad){
+    return ((rad * 180) / M_PI);
+}
+
 int main(){
 
     int opcao = 0, opcaoM = 0;
@@ -70,12 +74,12 @@ int main(){
                 printf("Digite o seno:\n");
                 scanf("%lf", &medida);
 
-                if(medida <= 1 && medida >= -1){
+                if(medida > 1 && medida < -1){
                     printf("Opcao invalida!\n");
                     Sleep(1500);
                     system("cls");
                 }
-            }while(medida <= 1 && medida >= -1);
+            }while(medida > 1 && medida < -1);
 
         }else if(opcao == 8){
 
@@ -84,19 +88,17 @@ int main(){
                 printf("Digite o cosseno:\n");
                 scanf("%lf", &medida);
 
-                if(medida <= 1 && medida >= -1){
+                if(medida > 1 && medida < -1){
                     printf("Opcao invalida!\n");
                     Sleep(1500);
                     system("cls");
                 }
-            }while(medida <= 1 && medida >= -1);
+            }while(medida > 1 && medida < -1);
 
         }else if(opcao == 9){
-        	
-        		system("cls");
+            	system("cls");
                 printf("Digite a tangente:\n");
                 scanf("%lf", &medida);
-
         }
     }
 
@@ -142,7 +144,7 @@ int main(){
 	system("cls");
 	resultado = asin(medida);
 	
-    printf("O valor do Arco Seno eh: %.lf ° e %.2lf rad\n", conversao(resultado), resultado);
+    printf("O valor do Arco Seno eh: %.lf graus e %.2lf rad\n", conversaoRad(resultado), resultado);
 
         break;
     case 8:
@@ -150,7 +152,7 @@ int main(){
 	system("cls");
 	resultado = acos(medida);
 	
-    printf("O valor do Arco Cosseno eh: %.lf ° e %.2lf rad\n", conversao(resultado), resultado);
+    printf("O valor do Arco Cosseno eh: %.lf graus e %.2lf rad\n", conversaoRad(resultado), resultado);
 
         break;
     case 9:
@@ -158,7 +160,7 @@ int main(){
 	system("cls");
 	resultado = atan(medida);
 	
-    printf("O valor do Arco Tangente eh: %.lf ° e %.2lf rad\n", conversao(resultado), resultado);
+    printf("O valor do Arco Tangente eh: %.lf graus e %.2lf rad\n", conversaoRad(resultado), resultado);
 
         break;
     
