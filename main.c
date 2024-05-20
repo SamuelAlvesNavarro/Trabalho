@@ -25,37 +25,39 @@ double conversao(double ang){
 int main(){
 
     int opcao = 0, opcaoM = 0;
-    double medida = 0;
+    double medida = 0, resultadoc = 0, resultado = 0;
 
 
     do{
         printf("Qual calculo voce gostaria de realizar?\n1 - Seno\n2 - Cosseno\n3 - Tangente\n4 - Secante\n5 - Cossecante\n6 - Cotangente\n7 - Arco Seno\n8 - Arco Cosseno\n9 - Arco Tangente\n");
         scanf("%d", &opcao);
 
-        if(opcao != 1 || opcao != 2 || opcao != 3 || opcao != 4 || opcao != 5 || opcao != 6 || opcao != 7 || opcao != 8 || opcao != 9){
+        if(opcao != 1 && opcao != 2 && opcao != 3 && opcao != 4 && opcao != 5 && opcao != 6 && opcao != 7 && opcao != 8 && opcao != 9){
             printf("Opcao invalida!\n");
             Sleep(1500);
             system("cls");
         }
 
-    }while(opcao != 1 || opcao != 2 || opcao != 3 || opcao != 4 || opcao != 5 || opcao != 6 || opcao != 7 || opcao != 8 || opcao != 9);
+    }while(opcao != 1 && opcao != 2 && opcao != 3 && opcao != 4 && opcao != 5 && opcao != 6 && opcao != 7 && opcao != 8 && opcao != 9);
 
 
-    if(opcao != 7 || opcao != 8 || opcao != 9){
+    if(opcao != 7 && opcao != 8 && opcao != 9){
         do{
+        	system("cls");
             printf("O angulo sera informado em qual medida?\n");
             printf("1 - Graus\n2 - Radianos\n");
             scanf("%d", &opcaoM);
 
-            if(opcaoM != 1 || opcaoM != 2){
+            if(opcaoM != 1 && opcaoM != 2){
                 printf("Opcao invalida!\n");
                 Sleep(1500);
                 system("cls");
             }
-        }while(opcaoM != 1 || opcaoM != 2);
-
+        }while(opcaoM != 1 && opcaoM != 2);
+		
+		system("cls");
         printf("Digite a medida:\n");
-        scanf("%d", &medida);
+        scanf("%lf", &medida);
 
         if(opcaoM == 1){
             medida = conversao(medida);
@@ -64,8 +66,9 @@ int main(){
     }else{
         if(opcao == 7){
             do{
+            	system("cls");
                 printf("Digite o seno:\n");
-                scanf("%d", &medida);
+                scanf("%lf", &medida);
 
                 if(medida <= 1 && medida >= -1){
                     printf("Opcao invalida!\n");
@@ -77,8 +80,9 @@ int main(){
         }else if(opcao == 8){
 
             do{
+            	system("cls");
                 printf("Digite o cosseno:\n");
-                scanf("%d", &medida);
+                scanf("%lf", &medida);
 
                 if(medida <= 1 && medida >= -1){
                     printf("Opcao invalida!\n");
@@ -88,17 +92,10 @@ int main(){
             }while(medida <= 1 && medida >= -1);
 
         }else if(opcao == 9){
-           
-            do{
-                printf("Digite o tangente:\n");
-                scanf("%d", &medida);
-
-                if(medida <= 1 && medida >= -1){
-                    printf("Opcao invalida!\n");
-                    Sleep(1500);
-                    system("cls");
-                }
-            }while(medida <= 1 && medida >= -1);
+        	
+        		system("cls");
+                printf("Digite a tangente:\n");
+                scanf("%lf", &medida);
 
         }
     }
@@ -106,48 +103,62 @@ int main(){
     switch(opcao)
     {
     case 1:
-
-        printf("O valor do Seno é: %.2lf\n", sin(medida));
+		system("cls");
+        printf("O valor do Seno eh: %.2lf\n", sin(medida));
 
         break;
     case 2:
-
-    printf("O valor do Cosseno é: %.2lf\n", cos(medida));
+	
+	system("cls");
+    printf("O valor do Cosseno eh: %.2lf\n", cos(medida));
 
         break;
     case 3:
-
-    printf("O valor do Tangente é: %.2lf\n", tan(medida));
+	
+	system("cls");
+    printf("O valor da Tangente eh: %.2lf\n", tan(medida));
 
         break;
     case 4:
 
-    printf("O valor do Cossecante é: %.2lf\n", 1 / sin(medida));
+	system("cls");
+    printf("O valor do Cossecante eh: %.2lf\n", 1/sin(medida));
 
         break;
     case 5:
-
-    printf("O valor do Secante é: %.2lf\n", 1/cos(medida));
+	
+	system("cls");
+    printf("O valor da Secante eh: %.2lf\n", 1/cos(medida));
 
         break;
     case 6:
-
-    printf("O valor do Cotangente é: %.2lf\n", 1/tan(medida));
+	
+	system("cls");
+    printf("O valor da Cotangente eh: %.2lf\n", 1/tan(medida));
 
         break;
     case 7:
-
-    printf("O valor do Arco Seno é: %.2lf ° e %.2lf rad\n", xx,asin(medida));
+	
+	system("cls");
+	resultado = asin(medida);
+	
+    printf("O valor do Arco Seno eh: %.lf ° e %.2lf rad\n", conversao(resultado), resultado);
 
         break;
     case 8:
-
-    printf("O valor do Arco Cosseno é: %.2lf e %.2lf rad\n", acos(medida));
+	
+	system("cls");
+	resultado = acos(medida);
+	
+    printf("O valor do Arco Cosseno eh: %.lf ° e %.2lf rad\n", conversao(resultado), resultado);
 
         break;
     case 9:
-
-    printf("O valor do Arco Tangente é: %.2lf e %.2lf rad\n", atan(medida));
+	
+	system("cls");
+	resultado = atan(medida);
+	
+    printf("O valor do Arco Tangente eh: %.lf ° e %.2lf rad\n", conversao(resultado), resultado);
 
         break;
     
